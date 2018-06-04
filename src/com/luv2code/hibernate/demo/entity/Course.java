@@ -36,6 +36,8 @@ public class Course {
 	@JoinColumn(name="course_id")
 	private List<Review> reviews;
 	
+	private List<Student> students;
+	
 	public Course() {
 	}
 
@@ -83,6 +85,24 @@ public class Course {
 		}
 		
 		reviews.add(review);
+	}
+
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+	
+	// add a student to the course
+	public void addStudent(Student theStudent) {
+		
+		if (students == null) {
+			students = new ArrayList<>();
+		}
+		
+		students.add(theStudent);
 	}
 
 	@Override
